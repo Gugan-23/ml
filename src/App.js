@@ -1,25 +1,20 @@
+// src/App.js
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home'; // Assuming you have a Home component
+import Predict from './components/Predict'; // Import your Predict component
+import Header from './components/Header'; // Your header component
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* Use the imported logo */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <Router>
+            <Header />
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/predict" component={Predict} />
+            </Switch>
+        </Router>
+    );
+};
 
 export default App;
